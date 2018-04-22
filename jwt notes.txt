@@ -1,0 +1,30 @@
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.XbPfbIHMI6arZ3Y922BhjWgQzWXcXNrz0ogtVhfEd2o
+
+
+Jwt has the following format
+
+header.payload.signature
+
+Flow:
+
+1. User Signs in
+2. IF sign in is valid, JWT created and returned to the User
+3. User makes JWT call to API
+4. If JWT is valid and not expired, Application processes call.
+
+
+Header (JSON Object):
+
+Contains information  on how the signature should be computed
+
+
+Payload (JSON Object):
+
+The actual data
+
+Signature:
+
+data = Base64Encode (Header) + "." + Base64Encode (Payload)
+signature = Hash (data,secret)
+
+DOES NOT HIDE DATA -- ONL VERIFIES DATA NOT TAMPERED
